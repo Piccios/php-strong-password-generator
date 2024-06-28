@@ -3,9 +3,7 @@ require_once __DIR__ . '/functions.php';
 require __DIR__ . '/usersdb.php';
 session_start();
 
-$_SESSION["username"] = "";
 
-var_dump($_SESSION);;
 
 ?>
 

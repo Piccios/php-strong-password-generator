@@ -3,7 +3,21 @@ include __DIR__ . '/functions.php';
 include __DIR__ . '/usersdb.php';
 
 session_start();
-$_SESSION['logged'] = false;
+
+$error = '';    
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if (login($username, $password, $users)) {
+        $_SESSION['username'] = $username;
+        header('location: ./main.php');
+        exit;
+    }else {
+        $error = 'Wrong username or password';
+    }
+}
 
 ?>
 
@@ -21,9 +35,12 @@ $_SESSION['logged'] = false;
         <h4>Please authenticate your login</h4>
     </header>
     <main>
-        <form action="login.php" method="post">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email">
+        <?php if ($error):?> 
+            <p><?php echo $error; ?></p>
+        <?php endif; ?>
+        <form action="login.php" method="POST">
+            <label for="username">Username</label>
+            <input type="username" name="username" id="username">
             <label for="password">Password</label>
             <input type="password" name="password" id="password">
             <button type="submit">Login</button>
