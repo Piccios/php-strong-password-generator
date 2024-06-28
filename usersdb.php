@@ -14,6 +14,14 @@
             'username' => 'Peach',
             'password' => 'asdf1'
         ],
+        [
+            'username' => 'Lorenzo',
+            'password' => 'Ciao'
+        ],
+        [
+            'username' => 'Alessia',
+            'password' => 'password'
+        ],
     ];
 
 ?>
