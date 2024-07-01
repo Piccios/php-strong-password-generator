@@ -1,8 +1,6 @@
 <?php 
 require __DIR__ . '/usersdb.php';
 
-
-
 /**
  * 
  * 
